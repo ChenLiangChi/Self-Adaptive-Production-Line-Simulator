@@ -165,8 +165,5 @@ cython_debug/
 # Ignore the entire venv folder
 venv/
 
-# Allow Python files inside venv
-!venv/*.py
-
 # Ignore DS_Store
 .DS_Store
