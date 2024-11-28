@@ -57,16 +57,50 @@ def calculate_plastic_waste(T, P, T_opt=160, P_opt=60, a=0.001, b=0.01, W_min=5)
 # Simulate high-level goal parsing
 def goal_management():
     while True:
-        strategy_enactment_done.wait()  
+        strategy_enactment_done.wait()  # Wait for the previous cycle to finish
         strategy_enactment_done.clear()
+
+        # Set a new goal and proceed
+        goal = "plastic_waste must be less than 8%"  # OM can extend this to multiple goals (Must be very specific)
         
-        goal = "Reduce plastic waste to 8%" # Manually set by operation manager
-        
-        print("----------", end = "\n")
-        print(f"1. Goal Management Layer: New goal -> {goal}",end = "\n")
+        # Retrieve the latest production data from the queue
+        if not data_queue.empty():
+            production_data = data_queue.get()
+
+            # Use LLM to analyze if the production data meets the goal
+            prompt = (
+                f"The production line data is as follows: {json.dumps(production_data)}. "
+                f"The goal is '{goal}'. "
+                "Analyze whether the 'plastic_waste' value in the production line data meets the goal. "
+                "If the 'plastic_waste' value is less than or equal to the target in the goal, return only 'Goal Achieved'. "
+                "Otherwise, return only 'Goal Not Achieved'. Do not perform any calculations or provide any suggestions."
+            )
+
+            try:
+                response = client.chat.completions.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system", "content": "You are a production line goal optimization assistant responsible for analyzing data and goals."},
+                        {"role": "user", "content": prompt}
+                    ],
+                )
+                analysis = response.choices[0].message.content.strip()
+                print(f"1. Goal Management Layer: Analysis -> {analysis}", end="\n")
+
+                # Check the analysis result
+                if "Goal Achieved" in analysis:
+                    print(f"1. Goal Management Layer: Goal achieved. Terminating the program...", end="\n")
+                    os._exit(0)  # Terminate the program when the goal is achieved
+                else:
+                    print("1. Goal Management Layer: Goal not achieved. Continuing the process...", end="\n")
+            except Exception as e:
+                print(f"1. Goal Management Layer: Error occurred -> {e}", end="\n")
+
+        print("----------", end="\n")
+        print(f"1. Goal Management Layer: New goal -> {goal}", end="\n")
         goal_queue.put(goal)
         time.sleep(1)
-        goal_done.set() 
+        goal_done.set()  
 
 def data_collector():
     global temperature, pressure
@@ -111,7 +145,7 @@ def strategy_management():
                 response = client.chat.completions.create(
                     model="gpt-3.5-turbo",
                     messages=[
-                        {"role": "system", "content": "You are a production line optimization assistant responsible for generating strategies based on data and goals."},
+                        {"role": "system", "content": "You are a production line strategy optimization assistant responsible for generating strategies based on data and goals."},
                         {"role": "user", "content": prompt}
                     ],
                 )
