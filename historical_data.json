@@ -1,0 +1,82 @@
+[
+    {
+        "time": "day",
+        "temperature": "185 °C",
+        "pressure": "70 bar",
+        "electricity_price": "0.24 USD/kWh",
+        "plastic_waste": "7 %",
+        "yield": "0.92 (ratio)"
+    },
+    {
+        "time": "night",
+        "temperature": "190 °C",
+        "pressure": "75 bar",
+        "electricity_price": "0.1 USD/kWh",
+        "plastic_waste": "11 %",
+        "yield": "0.84 (ratio)"
+    },
+    {
+        "time": "day",
+        "temperature": "220 °C",
+        "pressure": "85 bar",
+        "electricity_price": "0.26 USD/kWh",
+        "plastic_waste": "25 %",
+        "yield": "0.72 (ratio)"
+    },
+    {
+        "time": "night",
+        "temperature": "180 °C",
+        "pressure": "68 bar",
+        "electricity_price": "0.09 USD/kWh",
+        "plastic_waste": "6 %",
+        "yield": "0.93 (ratio)"
+    },
+    {
+        "time": "day",
+        "temperature": "200 °C",
+        "pressure": "78 bar",
+        "electricity_price": "0.23 USD/kWh",
+        "plastic_waste": "15 %",
+        "yield": "0.8 (ratio)"
+    },
+    {
+        "time": "night",
+        "temperature": "165 °C",
+        "pressure": "60 bar",
+        "electricity_price": "0.1 USD/kWh",
+        "plastic_waste": "22 %",
+        "yield": "0.75 (ratio)"
+    },
+    {
+        "time": "day",
+        "temperature": "170 °C",
+        "pressure": "65 bar",
+        "electricity_price": "0.24 USD/kWh",
+        "plastic_waste": "20 %",
+        "yield": "0.78 (ratio)"
+    },
+    {
+        "time": "night",
+        "temperature": "210 °C",
+        "pressure": "80 bar",
+        "electricity_price": "0.09 USD/kWh",
+        "plastic_waste": "18 %",
+        "yield": "0.81 (ratio)"
+    },
+    {
+        "time": "day",
+        "temperature": "182 °C",
+        "pressure": "70 bar",
+        "electricity_price": "0.25 USD/kWh",
+        "plastic_waste": "5 %",
+        "yield": "0.96 (ratio)"
+    },
+    {
+        "time": "night",
+        "temperature": "190 °C",
+        "pressure": "74 bar",
+        "electricity_price": "0.1 USD/kWh",
+        "plastic_waste": "12 %",
+        "yield": "0.85 (ratio)"
+    }
+]
