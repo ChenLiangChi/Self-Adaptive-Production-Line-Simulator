@@ -77,7 +77,7 @@ def goal_management():
                 f"Here is the past production line data: {json.dumps(historical_production_data)}. "
                 f"The goal is '{goal}'. "
                 "From the historical data, determine the optimal ranges for time, temperature, and pressure "
-                "that minimize plastic waste while maintaining yield ≥ 0.9 and minimizing electricity costs. "
+                "that meet the goal. "
                 "Provide a concise summary in 100 words."
             )
 
