@@ -99,13 +99,13 @@ The system will:
 
 ## How it Works
 **1. Goal Management Layer**
-    Set the abstract production goals (e.g., "Optimize the production cost")
+    Set the abstract production goals (e.g., "Optimize the production cost") \
 **2. Strategy Management Layer**
-    Leverages OpenAI's GPT model to suggest optimal strategies
+    Leverages OpenAI's GPT model to suggest optimal strategies \
 **3. Strategy Execution Layer**
-    Update the control parameters (e.g. temperature, pressure) on the target system
+    Update the control parameters (e.g. temperature, pressure) on the target system \
 **4. Shared Context**
-    Sharing the context (strategies) between layers
+    Sharing the context (strategies) between layers 
 
 ---
 
@@ -113,7 +113,7 @@ The system will:
 
 ```bash
 ----------
-1. Goal Management Layer: Strategy -> Based on the historical data operating during the night consistently shows lower electricity costs, with rates between 0.09-0.10 USD/kWh. A temperature range of 180-190 °C with pressure levels between 68-74 bar during these night shifts maintains yields above 0.9 while minimizing plastic waste to 6-12%. The most optimal setting observed was at 180 °C, 68 bar, resulting in a yield of 0.93 and waste at 6%. To achieve the production goals, prioritize night shifts and maintain temperature and pressure within these ranges for optimal balance between waste reduction and cost efficiency.
+1. Goal Management Layer: Strategy -> ...
 ----------
 2. Strategy Management Layer: Generated strategy ->
 {
@@ -122,7 +122,7 @@ The system will:
     "temperature": "180 °C",
     "pressure": "68 bar"
 },
-"explanation": "Switching production to night shifts can significantly lower electricity costs to 0.09-0.10 USD/kWh. Operating at 180 °C and 68 bar has historically yielded the best results, with a yield of 0.93 and minimal plastic waste at 6%. These settings ensure the yield remains above the target of 0.9, while also adhering to the goal of minimizing plastic waste and optimizing cost efficiency. The current day-time operation settings of 200 °C and 80 bar should be adjusted to align with the optimal historical parameters identified for night operations."
+"explanation": ...
 ----------
 ```
 
