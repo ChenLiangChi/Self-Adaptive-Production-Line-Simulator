@@ -115,12 +115,10 @@ def strategy_management():
         
         # Use LLM to generate strategy based on goals and data
         prompt = (
-            f"The goal is '{goal}'. "
             f"Historical analysis indicates the following optimal ranges: {historical_analysis}. "
             f"Current production line data: {json.dumps(current_data)}. "
             f"Previous strategies as reference: {json.dumps(previous_strategies)}. "
-            "Suggest specific time, temperature, and pressure adjustments that meet the goal. "
-            "Ensure your recommendation meet all criteria. "
+            "Suggest specific time, temperature, and pressure adjustments considering the historical analysis, current data, and previous strategies. "
             "Return the recommendations in JSON format without any Markdown syntax, and include an explanation in 100 words."
         )
 
